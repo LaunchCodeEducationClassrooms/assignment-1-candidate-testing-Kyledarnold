@@ -25,23 +25,40 @@ function askQuestion() {
 for (let i = 0; i < questions.length; i++) {
     candidateAnswers.push((input.question(questions[i])));
 
-console.log(`Your answer: ${candidateAnswers[i]} \nCorrect Answer: ${correctAnswers[i]} \n `);
+///console.log(`Your answer: ${candidateAnswers[i]} \nCorrect Answer: ${correctAnswers[i]} \n `);
   }
 }
 
-///function gradeQuiz(candidateAnswers) {
+function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+let grade = 0 
+let numberCorrectlyAnswered = 0
 
+for (let i = 0; i < correctAnswers.length; i++) {
+  if (candidateAnswers[i].toLowerCase() == correctAnswers[i].toLowerCase()) {
+    numberCorrectlyAnswered++;
+  }
+}
 
-///}
+grade = (numberCorrectlyAnswered / questions.length) * 100
+if (grade >= 80) {
+  results = "PASSED";
+} else {
+  results = "FAILED";
+}
+
+console.log(`>>> Overall Grade: ${grade}% (${numberCorrectlyAnswered} of ${correctAnswers.length} responses correct) <<<`);
+console.log(`>>> Status: ${results}`)
+
+}
 
 function runProgram() {
   askForName();
   // TODO 1.1c: Ask for candidate's name //
   console.log(`Hello, ${candidateName}!`);
   askQuestion();
-  //gradeQuiz(this.candidateAnswers);
+  gradeQuiz(this.candidateAnswers);
 }
 
 // Don't write any code below this line //
