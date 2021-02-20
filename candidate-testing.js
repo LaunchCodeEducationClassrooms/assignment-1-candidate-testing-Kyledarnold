@@ -25,13 +25,16 @@ function askQuestion() {
 for (let i = 0; i < questions.length; i++) {
     candidateAnswers.push((input.question(questions[i])));
 
+
 ///console.log(`Your answer: ${candidateAnswers[i]} \nCorrect Answer: ${correctAnswers[i]} \n `);
+
   }
 }
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+
 let grade = 0 
 let numberCorrectlyAnswered = 0
 
@@ -43,13 +46,20 @@ for (let i = 0; i < correctAnswers.length; i++) {
 
 grade = (numberCorrectlyAnswered / questions.length) * 100
 if (grade >= 80) {
-  results = "PASSED";
+  testResults = "PASSED";
 } else {
-  results = "FAILED";
+  testResults = "FAILED";
+}
+
+///Trying to Print everything at the End
+
+console.log(`\nCandidate Name: ${candidateName}`)
+for (let i = 0; i < questions.length; i++) {
+  console.log(`${i +1}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`);
 }
 
 console.log(`>>> Overall Grade: ${grade}% (${numberCorrectlyAnswered} of ${correctAnswers.length} responses correct) <<<`);
-console.log(`>>> Status: ${results}`)
+console.log(`>>> Status: ${testResults} <<<`)
 
 }
 
@@ -71,6 +81,6 @@ module.exports = {
   questions: questions,
   correctAnswers: correctAnswers,
   candidateAnswers: candidateAnswers,
-  //gradeQuiz: gradeQuiz,
+  gradeQuiz: gradeQuiz,
   runProgram: runProgram
 };
