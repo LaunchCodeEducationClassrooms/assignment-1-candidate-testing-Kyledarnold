@@ -3,7 +3,7 @@ const input = require('readline-sync');
 // TODO 2: modify your quiz app to ask 5 questions //
 
 // TODO 1.1a: Define candidateName // 
-let candidateName = [];
+let candidateName = "";
 
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = "Who was the first American women in space?";
@@ -35,7 +35,7 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
-let grade = 0 
+let gradeQuiz = 0 
 let numberCorrectlyAnswered = 0
 
 for (let i = 0; i < correctAnswers.length; i++) {
@@ -44,8 +44,8 @@ for (let i = 0; i < correctAnswers.length; i++) {
   }
 }
 
-grade = (numberCorrectlyAnswered / questions.length) * 100
-if (grade >= 80) {
+gradeQuiz = (numberCorrectlyAnswered / questions.length) * 100
+if (gradeQuiz >= 80) {
   testResults = "PASSED";
 } else {
   testResults = "FAILED";
@@ -58,7 +58,7 @@ for (let i = 0; i < questions.length; i++) {
   console.log(`${i +1}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`);
 }
 
-console.log(`>>> Overall Grade: ${grade}% (${numberCorrectlyAnswered} of ${correctAnswers.length} responses correct) <<<`);
+console.log(`>>> Overall Grade: ${gradeQuiz}% (${numberCorrectlyAnswered} of ${correctAnswers.length} responses correct) <<<`);
 console.log(`>>> Status: ${testResults} <<<`)
 
 }
