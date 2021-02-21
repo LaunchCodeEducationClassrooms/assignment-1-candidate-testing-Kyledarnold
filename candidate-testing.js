@@ -24,10 +24,6 @@ function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 for (let i = 0; i < questions.length; i++) {
     candidateAnswers.push((input.question(questions[i])));
-
-
-///console.log(`Your answer: ${candidateAnswers[i]} \nCorrect Answer: ${correctAnswers[i]} \n `);
-
   }
 }
 
@@ -35,7 +31,6 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
-let gradeQuiz = 0 
 let numberCorrectlyAnswered = 0
 
 for (let i = 0; i < correctAnswers.length; i++) {
@@ -44,25 +39,24 @@ for (let i = 0; i < correctAnswers.length; i++) {
   }
 }
 
-gradeQuiz = (numberCorrectlyAnswered / questions.length) * 100
-if (gradeQuiz >= 80) {
+let grade;
+grade = (numberCorrectlyAnswered / questions.length) * 100
+if (grade >= 80) {
   testResults = "PASSED";
 } else {
   testResults = "FAILED";
-}
-
-///Trying to Print everything at the End
 
 console.log(`\nCandidate Name: ${candidateName}`)
 for (let i = 0; i < questions.length; i++) {
   console.log(`${i +1}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`);
 }
 
-console.log(`>>> Overall Grade: ${gradeQuiz}% (${numberCorrectlyAnswered} of ${correctAnswers.length} responses correct) <<<`);
+console.log(`>>> Overall Grade: ${grade}% (${numberCorrectlyAnswered} of ${correctAnswers.length} responses correct) <<<`);
 console.log(`>>> Status: ${testResults} <<<`)
 
 }
-
+return grade;
+}
 
 function runProgram() {
   askForName();
