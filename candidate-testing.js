@@ -53,7 +53,6 @@ if (grade >= 80) {
 
 ///Trying to Print everything at the End
 
-console.clear()
 console.log(`\nCandidate Name: ${candidateName}`)
 for (let i = 0; i < questions.length; i++) {
   console.log(`${i +1}) ${questions[i]}\nYour Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`);
@@ -63,6 +62,7 @@ console.log(`>>> Overall Grade: ${grade}% (${numberCorrectlyAnswered} of ${corre
 console.log(`>>> Status: ${testResults} <<<`)
 
 }
+
 
 function runProgram() {
   askForName();
